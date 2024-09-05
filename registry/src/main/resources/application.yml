@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: registry
+  config:
+    import: configserver:http://localhost:8888
+  cloud:
+    config:
+      uri: http://localhost:8888
+      fail-fast: true
+      password: Passw0rd
+      username: user
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    # 关闭向注册中心注册自己
+    register-with-eureka: false
+    # 关闭发现注册服务，注册中心仅用于维护节点
+    fetch-registry: false
+    server:
+      waitTimeInMsWhenSyncEmpty: 0
+
+#logging:
+#  level:
+#    root: DEBUG

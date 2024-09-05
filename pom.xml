@@ -28,10 +28,14 @@
         <maven.compiler.source>1.8</maven.compiler.source>
     </properties>
     <modules>
-        <module>ump-alarm</module>
-        <module>ump-security</module>
-        <module>ump-utils</module>
-		<module>ump-dependencies</module>
+        <module>config</module>
+        <module>registry</module>
+        <module>gateway</module>
+
+        <module>auth</module>
+        <module>chain</module>
+
+		<module>dependencies</module>
     </modules>
     <build>
         <plugins>

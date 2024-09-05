@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: gateway
+  cloud:
+    gateway:
+      routes:
+        - id: chain
+          uri: 'lb://chain'
+#          uri: 'http://localhost:9002'
+          predicates:
+            - Path=/dreamwork/api/chain/**
+        - id: auth
+          uri: 'lb://auth'
+          predicates:
+            - Path=/dreamwork/api/auth/**
+    config:
+      uri: http://localhost:8888
+      fail-fast: true
+      password: Passw0rd
+      username: user
+  config:
+    import: configserver:http://localhost:8888
+
+logging:
+  level:
+    root: INFO
+    org.springframework.cloud.gateway.handler: DEBUG
+    reactor.netty.resources: DEBUG
+

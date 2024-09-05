@@ -1,0 +1,4 @@
+# for registry application to define server port
+# also can be defined in application.yml of registry
+server:
+  port: 9101

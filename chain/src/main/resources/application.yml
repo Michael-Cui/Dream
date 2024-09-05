@@ -1,0 +1,30 @@
+server:
+  port: 9003
+  compression:
+    enabled: true
+    mime-types: application/json,application/xml,text/html,text/xml,text/plain
+
+spring:
+  application:
+    name: chain
+  cloud:
+    config:
+      uri: http://localhost:8888
+      fail-fast: true
+      password: Passw0rd
+      username: user
+  config:
+    import: configserver:http://localhost:8888
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/mywork?useSSL=false&useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    username: root
+    password: Dream@20240520
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.dream.work.chain.bean
+
+#logging:
+#  level:
+#    root: DEBUG
